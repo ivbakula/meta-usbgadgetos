@@ -11,6 +11,8 @@ SRC_URI = " \
 	file://usb-ecm.service \
 "
 
+S = "${UNPACKDIR}/sources"
+
 inherit systemd
 
 RDEPENDS:${PN} += "iproute2"

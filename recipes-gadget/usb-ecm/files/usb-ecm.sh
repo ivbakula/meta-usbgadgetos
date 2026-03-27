@@ -54,6 +54,9 @@ echo 250 > "$GADGET_CFG_ROOT/configs/c.1/MaxPower"
 # /etc/machine-id which should also be unique. This file should be available
 # on every machine????
 BASE=$(cat /etc/machine-id | md5sum | cut -c1-12)
+
+# I know, this is not POSIX compliant. This is BASH black magic, but it looks
+# like busybox sh handles this like charm.
 DEV_MAC="02:${BASE:0:2}:${BASE:2:2}:${BASE:4:2}:${BASE:6:2}:${BASE:8:2}"
 HOST_MAC="02:${BASE:0:2}:${BASE:2:2}:${BASE:4:2}:${BASE:6:2}:${BASE:10:2}"
 
