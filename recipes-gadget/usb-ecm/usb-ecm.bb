@@ -11,7 +11,7 @@ SRC_URI = " \
 	file://usb-ecm.service \
 "
 
-S = "${UNPACKDIR}/sources"
+S = "${UNPACKDIR}"
 
 inherit systemd
 
@@ -22,10 +22,10 @@ SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/usb-ecm.sh ${D}${bindir}/usb-ecm.sh
+    install -m 0755 ${S}/usb-ecm.sh ${D}${bindir}/usb-ecm.sh
 
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/usb-ecm.service ${D}${systemd_system_unitdir}/usb-ecm.service
+    install -m 0644 ${S}/usb-ecm.service ${D}${systemd_system_unitdir}/usb-ecm.service
 
     # networking.service is masked globally. Because it interferes in really strange way
     # with our usb-ecm.sh script. And it's failing anyways. This is not really good idea
