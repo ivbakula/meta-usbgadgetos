@@ -1,0 +1,12 @@
+[Unit]
+Description=USB ECM Gadget
+After=systemd-modules-load.service local-fs.target
+Wants=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/usb-ecm.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
