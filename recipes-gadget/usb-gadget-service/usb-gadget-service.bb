@@ -12,7 +12,7 @@ PV = "1.0+git${SRCPV}"
 
 #
 # Make sure that the system has systemd and libevdev installed
-DEPENDS = "systemd libevdev"
+RDEPENDS:${PN} = "libevdev socat systemd"
 
 #
 # Makefile needs pkgconfig (for finding proper libraries and include path -> PKG_CONFIG_PATH)
