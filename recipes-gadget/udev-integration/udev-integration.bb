@@ -12,7 +12,7 @@ inherit systemd
 
 do_install() {
     install -d ${D}${systemd_unitdir}/system/systemd-udevd.service.d
-    install -m 0644 ${WORKDIR}/10-wait-for-gadget-service.conf \
+    install -m 0644 ${S}/10-wait-for-gadget-service.conf \
         ${D}${systemd_unitdir}/system/systemd-udevd.service.d/10-wait-for-gadget-service.conf
 }
 
