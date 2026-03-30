@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 SRC_URI = "file://10-wait-for-gadget-service.conf"
 
-S = "${UNPACKD}"
+S = "${UNPACKDIR}"
 
 RDEPENDS:${PN} = "usb-gadget-service"
 
