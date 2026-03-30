@@ -8,6 +8,4 @@ WKS_FILE = "usbgadgetos-sdcard-image.wks"
 
 IMAGE_FEATURES += "allow-root-login allow-empty-password empty-root-password"
 
-IMAGE_INSTALL:append = " \
-	usb-gadget-service
-"
+IMAGE_INSTALL:append = " usb-gadget-service"

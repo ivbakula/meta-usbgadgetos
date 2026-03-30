@@ -4,17 +4,14 @@ LICENSE = "CLOSED"
 
 HOMEPAGE = "https://github.com/ivbakula/usb-gadget-service"
 
-SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;branch=main"
-
-#
-# Pull latest master. Good for devel, bad for everything else ;)
-SRCREV = "a444b2af3f71fecbd7f4f60578e54364b286b93f"
+SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;branch=master"
+SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
-S = "${WORKDIR}/git"
 
 #
 # Make sure that the system has systemd and libevdev installed
 RDEPENDS:${PN} = "libevdev socat systemd"
+DEPENDS = "systemd libevdev"
 
 #
 # Makefile needs pkgconfig (for finding proper libraries and include path -> PKG_CONFIG_PATH)
@@ -39,11 +36,13 @@ oe_runmake \
 }
 
 SYSTEMD_SERVICE:${PN} = "setup-usb-gadget.service gadget.service finalize-usb-gadget.service"
-SYSTEMD_SERVICE:${PN} = "enable"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 FILES:${PN} += " \
 	${sbindir}/gadget \
 	${sbindir}/hotplug.sh \
+	${sbindir}/setup-usb-gadget.sh \
+	${sbindir}/finalize-usb-gadget.service \
 	${systemd_system_unitdir}/gadget.service \
 	${systemd_system_unitdir}/setup-usb-gadget.service \
 	${systemd_system_unitdir}/finalize-usb-gadget.service \
