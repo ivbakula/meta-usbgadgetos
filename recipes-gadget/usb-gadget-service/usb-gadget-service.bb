@@ -8,6 +8,8 @@ SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;bra
 SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 
+S = "${WORKDIR}/git"
+
 #
 # Make sure that the system has systemd and libevdev installed
 RDEPENDS:${PN} = "libevdev socat systemd"
