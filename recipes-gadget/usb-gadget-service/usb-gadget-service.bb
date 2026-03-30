@@ -8,8 +8,9 @@ SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;bra
 
 #
 # Pull latest master. Good for devel, bad for everything else ;)
-SRCREV = "${AUTOREV}"
+SRCREV = "a444b2af3f71fecbd7f4f60578e54364b286b93f"
 PV = "1.0+git${SRCPV}"
+S = "${WORKDIR}/git"
 
 #
 # Make sure that the system has systemd and libevdev installed
