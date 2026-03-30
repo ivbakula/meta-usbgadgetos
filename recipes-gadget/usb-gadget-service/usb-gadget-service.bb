@@ -3,7 +3,8 @@ DESCRIPTION = "SystemD unit that listens for hotplug events, libevdev events fro
 LICENSE = "CLOSED"
 
 HOMEPAGE = "https://github.com/ivbakula/usb-gadget-service"
-SRC_URI = "git@github.com:ivbakula/usb-gadget-service.git"
+
+SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;branch=main"
 
 #
 # Pull latest master. Good for devel, bad for everything else ;)
