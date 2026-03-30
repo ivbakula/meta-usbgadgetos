@@ -1,0 +1,13 @@
+[Unit]
+Description=USB Gadget init
+Requires=sys-kernel-config.mount
+After=sys-kernel-config.mount
+ConditionPathIsMountPoint=/sys/kernel/config
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/usb-gadget-init.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
