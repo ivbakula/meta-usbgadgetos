@@ -8,8 +8,6 @@ SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;bra
 SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 
-S = "${WORKDIR}/git"
-
 #
 # Make sure that the system has systemd and libevdev installed
 RDEPENDS:${PN} = "libevdev socat systemd"
@@ -31,9 +29,9 @@ oe_runmake \
 	prefix=${prefix} \
 	exec_prefix=${exec_prefix} \
 	sbindir=${sbindir} \
-	sysconfdir={sysconfdir} \
+	sysconfdir=${sysconfdir} \
 	systemd_system_unitdir=${systemd_system_unitdir} \
-	udev_rules_dir=${sysconfdir}/udev/rules.d \
+	udevrulesdir=${sysconfdir}/udev/rules.d \
 	install
 }
 
@@ -44,7 +42,7 @@ FILES:${PN} += " \
 	${sbindir}/gadget \
 	${sbindir}/hotplug.sh \
 	${sbindir}/setup-usb-gadget.sh \
-	${sbindir}/finalize-usb-gadget.service \
+	${sbindir}/finalize-usb-gadget.sh \
 	${systemd_system_unitdir}/gadget.service \
 	${systemd_system_unitdir}/setup-usb-gadget.service \
 	${systemd_system_unitdir}/finalize-usb-gadget.service \
