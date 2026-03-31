@@ -18,7 +18,7 @@ inherit systemd
 RDEPENDS:${PN} += "iproute2"
 
 SYSTEMD_SERVICE:${PN} = "usb-ecm.service"
-SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 do_install() {
     install -d ${D}${bindir}
