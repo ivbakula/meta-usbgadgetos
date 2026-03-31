@@ -15,7 +15,7 @@ S = "${UNPACKDIR}"
 
 inherit systemd
 
-RDEPENDS:${PN} += "iproute2"
+RDEPENDS:${PN} += "iproute2 openssh openssh-sshd"
 
 SYSTEMD_SERVICE:${PN} = "usb-ecm.service"
 SYSTEMD_AUTO_ENABLE:${PN} = "disable"
