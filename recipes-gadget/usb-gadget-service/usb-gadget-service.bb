@@ -4,11 +4,10 @@ LICENSE = "CLOSED"
 
 HOMEPAGE = "https://github.com/ivbakula/usb-gadget-service"
 
-SRC_URI = "git://git@github.com/ivbakula/usb-gadget-service.git;protocol=ssh;branch=master"
-SRCREV = "${AUTOREV}"
-PV = "1.0+git${SRCPV}"
+SRC_URI = "file://usb-gadget-service.tar.gz"
+PV = "1.0"
+S = "${WORKDIR}/usb-gadget-service"
 
-#
 # Make sure that the system has systemd and libevdev installed
 RDEPENDS:${PN} = "libevdev socat systemd"
 DEPENDS = "systemd libevdev"
