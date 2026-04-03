@@ -6,7 +6,7 @@ HOMEPAGE = "https://github.com/ivbakula/usb-gadget-service"
 
 SRC_URI = "file://usb-gadget-service.tar.gz"
 PV = "1.0"
-S = "${WORKDIR}/usb-gadget-service"
+S = "${UNPACKDIR}"
 
 # Make sure that the system has systemd and libevdev installed
 RDEPENDS:${PN} = "libevdev socat systemd"
