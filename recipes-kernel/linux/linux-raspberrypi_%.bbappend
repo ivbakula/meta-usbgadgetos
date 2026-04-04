@@ -1,4 +1,4 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/files/mangopi-mq-pro:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files/raspberrypi:"
 
 SRC_URI += " \
 	file://gadgetusb.cfg \
